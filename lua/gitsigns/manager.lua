@@ -287,7 +287,7 @@ local function build_lno_str(win, lnum, width)
       highlights = true,
     })
     if ok then
-      return data.str, data.highlights
+      return data.str:gsub("[^0-9]", " "), data.highlights
     end
   end
   return string.format('%' .. width .. 'd', lnum)
