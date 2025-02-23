@@ -287,7 +287,8 @@ local function build_lno_str(win, lnum, width)
       highlights = true,
     })
     if ok then
-      return data.str:gsub("[^0-9]", " "), data.highlights
+      local diffchar = vim.opt.fillchars:get().diff
+      return data.str:gsub("[^0-9]", " "):gsub("[^ ]", diffchar), data.highlights
     end
   end
   return string.format('%' .. width .. 'd', lnum)
