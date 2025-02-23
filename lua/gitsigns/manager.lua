@@ -304,7 +304,7 @@ function M.show_deleted_in_float(bufnr, nsd, hunk, staged)
   local virt_lines = {} --- @type {[1]: string, [2]: string}[][]
   local textoff = vim.fn.getwininfo(cwin)[1].textoff --[[@as integer]]
   for i = 1, hunk.removed.count do
-    local sc = build_lno_str(cwin, hunk.removed.start + i, textoff - 1)
+    local sc = build_lno_str(cwin, hunk.removed.start + i - 1, textoff - 1)
     virt_lines[i] = { { sc, 'LineNr' } }
   end
 
